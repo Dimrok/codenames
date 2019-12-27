@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ card: true, red: isRed, blue: isBlue, grey: isGrey, black: isBlack }">
+  <div :class="{ card: true, background: true, red: isRed, blue: isBlue, grey: isGrey, black: isBlack }">
     <div class="inner">
       <div class="top">
         <div class="left">
@@ -47,30 +47,37 @@ export default {
     border-radius: 5px;
     display: flex;
     justify-content: center;
-    padding: 5px;
-    background-color: #d4b19d;
+    padding: 6px;
     min-height: 128px;
+    background-color: #d4b19d;
+
+    .background {
+        background-color: #d4b19d;
+        background-image: url('../assets/dirty-overlay.jpeg');
+        background-size: cover;
+        background-blend-mode: soft-light;
+    }
 
     .inner {
         flex-grow: 1;
-        border: 1px solid black;
+        border: 3px solid darken(#d4b19d, 8%);
         border-radius: 5px;
         display: flex;
         flex-direction: column;
-        padding: 5px;
+        padding: 6px;
 
         .top {
             position: relative;
             content: ' ';
             flex: 1 1 50%;
             display: flex;
-
+            margin-bottom: 2px;
             .left {
                 flex: 1 1 70%;
                 display: flex;
                 flex-direction: column;
                 svg {
-                    fill: lighten(#d4b19d, 10%);
+                    fill: lighten(#d4b19d, 20%);
                 }
                 .hole {
                     position: absolute;
@@ -83,7 +90,7 @@ export default {
                     content: ' ';
                     width: 100%;
                     height: 1px;
-                    background-color: black;
+                    background-color: darken(#d4b19d, 30%);
                     align-self: flex-end;
                     margin-top: auto;
                     margin-bottom: 4px;
@@ -91,13 +98,13 @@ export default {
             }
 
             .right {
-                flex: 1 1 30%;
+                flex: 1 1 10%;
 
                 .picture {
                     background-image: url('../assets/picture.jpeg');
                     mix-blend-mode: multiply;
                     background-size: contain;
-                    background-position: right;
+                    background-position: center;
                     background-repeat: no-repeat;
                     width: 100%;
                     min-height: 100%;
