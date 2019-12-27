@@ -30,7 +30,7 @@
             <input
               id="seed"
               v-model="seed"
-              type="text"
+              type="number"
               name="seed"
             >
           </p>
@@ -62,7 +62,8 @@ export default {
         return this.$store.getters.seed;
       },
       set(seed) {
-        this.$store.commit('generateGame', seed);
+        if (seed !== '')
+          this.$store.commit('generateGame', Number(seed));
       }
     }
   },

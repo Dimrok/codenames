@@ -27,7 +27,7 @@
       <input
         id="seed"
         v-model="seed"
-        type="text"
+        type="number"
         name="seed"
         >
     </p>
