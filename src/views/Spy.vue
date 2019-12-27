@@ -22,17 +22,15 @@
       <p>Black</p>
       <p>{{ black }}</p>
     </template>
-    <form>
-      <p>
-        <label for="seed">Seed</label>
-        <input
-          id="seed"
-          v-model="seed"
-          type="text"
-          name="seed"
-          >
-      </p>
-    </form>
+    <p>
+      <label for="seed">Seed: </label>
+      <input
+        id="seed"
+        v-model="seed"
+        type="text"
+        name="seed"
+        >
+    </p>
   </div>
 </template>
 

@@ -25,7 +25,15 @@
           <p>playing: {{ playing }}</p>
           <p>red: {{ redLeft.size }}</p>
           <p>blue: {{ blueLeft.size }}</p>
-          <p>seed: {{ seed }}</p>
+          <p>
+            <label for="seed">Seed: </label>
+            <input
+              id="seed"
+              v-model="seed"
+              type="text"
+              name="seed"
+            >
+          </p>
         </div>
         <button v-on:click="switchTeam">
           Next Player
@@ -48,7 +56,15 @@ export default {
     Cards,
   },
   computed: {
-    ...Vuex.mapGetters(['grid', 'over', 'defeat', 'playing', 'blueLeft', 'redLeft', 'seed']),
+    ...Vuex.mapGetters(['grid', 'over', 'defeat', 'playing', 'blueLeft', 'redLeft']),
+    seed: {
+      get() {
+        return this.$store.getters.seed;
+      },
+      set(seed) {
+        this.$store.commit('generateGame', seed);
+      }
+    }
   },
   methods: {
     generate() {
