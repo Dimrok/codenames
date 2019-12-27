@@ -22,9 +22,8 @@ const store = new Vuex.Store({
   },
   mutations: {
     generateGame(state, seed) {
-      state._initialSeed = seed || Math.floor(seedrandom()() * 100000);
+      state._initialSeed = Number(seed) || Math.floor(seedrandom()() * 100000);
       seedrandom(state._initialSeed, { global: true });
-
       state._seed = state._initialSeed;
       state._over = false;
       state._picked = [];
@@ -137,8 +136,8 @@ const store = new Vuex.Store({
     }
   },
   actions: {
-    generateGame({ commit }, words) {
-      commit('generateGame', words);
+    generateGame({ commit }, seed) {
+      commit('generateGame', seed);
     },
     pick({ commit }, word) {
       commit('pick', word);

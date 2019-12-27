@@ -29,7 +29,7 @@
         v-model="seed"
         type="number"
         name="seed"
-        >
+      >
     </p>
   </div>
 </template>
