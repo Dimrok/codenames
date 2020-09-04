@@ -1,8 +1,8 @@
-import seedrandom from 'seedrandom';
-import assert from 'assert';
-import Vue from 'vue';
-import Vuex from 'vuex';
-import { pick } from '../modules/wordPicker';
+import seedrandom from "seedrandom";
+import assert from "assert";
+import Vue from "vue";
+import Vuex from "vuex";
+import { pick } from "../modules/wordPicker";
 
 Vue.use(Vuex);
 
@@ -63,7 +63,7 @@ const store = new Vuex.Store({
           return false;
         }
       } finally {
-        state.found(word);
+        this.commit("found", word);
       }
     },
     changeTeam(state) {
@@ -75,7 +75,7 @@ const store = new Vuex.Store({
   },
   getters: {
     playing(state) {
-      return state._redStarts ? 'red' : 'blue';
+      return state._redStarts ? "red" : "blue";
     },
     isRed(state) {
       return word => state._picked.includes(word) && state._red.includes(word);
@@ -137,16 +137,16 @@ const store = new Vuex.Store({
   },
   actions: {
     generateGame({ commit }, seed) {
-      commit('generateGame', seed);
+      commit("generateGame", seed);
     },
     pick({ commit }, word) {
-      commit('pick', word);
+      commit("pick", word);
     },
     changeTeam({ commit }) {
-      commit('changeTeam');
+      commit("changeTeam");
     },
     found({ commit }, word) {
-      commit('found', word);
+      commit("found", word);
     }
   }
 });
